@@ -1,29 +1,9 @@
-import { getImg } from 'components/services/getImg';
-const { Component } = require('react');
+import { ImageGalleryItem } from "components/ImageGalleryItem/ImageGalleryItem"
 
-export class ImageGallery extends Component {
-  state = {
-    images: null,
-  };
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.searchImg !== this.props.searchImg) {
-      getImg(this.props.searchImg).then(images => {
-        const { data } = images;
-        this.setState({ images: data.hits });
-      });
-    }
-  }
-  render() {
-    const { images } = this.state;
+export const ImageGallery = ({data}) =>{
     return (
-      images &&
-      images.map(el => {
-        return (
-          <li key={el.id}>
-            <img src={el.previewURL} alt={el.tags} />
-          </li>
-        );
-      })
-    );
-  }
+        <ul className="gallery">
+        <ImageGalleryItem data={data}/>
+        </ul>
+    )
 }

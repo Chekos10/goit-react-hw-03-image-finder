@@ -5,3 +5,10 @@ export const getImg = searchImg => {
     return axios.get( `${BASE_URL}/?q=${searchImg}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`)
     
 };
+
+
+
+// getImg(this.state.searchImg).then(images => {
+//     const { data } = images;
+//     this.setState({ images: [...images, ...data.hits] });
+//   });

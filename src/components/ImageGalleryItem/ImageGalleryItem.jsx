@@ -1,7 +1,10 @@
-export const ImageGalleryItem = () => {
-return (
-    <li className="gallery-item">
-        <img src="" alt="" />
-    </li>
-    );
-};
+
+export const ImageGalleryItem = ({data})=> {
+  return data.map(image=>{
+    return (
+      <li key={image.id}>
+        <img src={image.previewURL} alt={image.tags}/>
+      </li>
+    )
+  })
+}
