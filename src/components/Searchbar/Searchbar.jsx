@@ -1,5 +1,6 @@
 import { Component } from "react";
-
+import PropTypes from 'prop-types';
+import css from '../Searchbar/Searchbar.module.css'
 export class Searchbar extends Component {
     state = {
         value: ''
@@ -16,16 +17,16 @@ export class Searchbar extends Component {
 
     render(){
         return (
-            <header className="searchbar">
+            <header className={css.searchbar}>
                 <form className="form" onSubmit={this.handleSubmit}>
-                <button type="submit" className="button">
+                <button type="submit" className={css.button}>
                     <span className="button-label">Search</span>
                 </button>
                 <input
-                    className="input"
+                    className={css.input}
                     type="text"
-                    autocomplete="off"
-                    autofocus
+                    autoComplete="off"
+                    autoFocus
                     placeholder="Search images and photos"
                     onChange={this.handleChange}
                     value={this.state.value}
@@ -34,4 +35,7 @@ export class Searchbar extends Component {
             </header>
         );
     }
+};
+Searchbar.propTypes = {
+    hendleSearch: PropTypes.func.isRequired,
 };
