@@ -43,7 +43,7 @@ export class App extends Component {
         }
         const data = await getImg(searchImg, page);
         this.setState({
-          images: [...prevState.images, ...data.hits],
+          images: [...images, ...data.hits],
           totalImages: data.totalHits,
           isLoading: false,
         });
